@@ -3,7 +3,7 @@
 set -e
 
 # -----------------------------------
-# This scripts create a new resource group containing a new VM 
+# This script creates a new resource group containing a new VM 
 #    and all the resources it needs.
 #
 # Please update variables

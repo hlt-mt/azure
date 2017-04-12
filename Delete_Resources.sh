@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # -------------------------------------------------------
-# This scripts remove several resources in the group $rgroup
+# This script removes several resources in the group $rgroup
 #
 # Each fo the following variable:
 #   vm, nic, ip, vnet, nsg, storacc, disk

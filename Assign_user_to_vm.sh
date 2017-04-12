@@ -3,7 +3,7 @@
 set -e
 
 # -------------------------------------------------------
-# This scripts give a user the permissions to manage each 
+# This script gives a user the permissions to manage each 
 #   vm in vmList 
 #
 # Please update variables
