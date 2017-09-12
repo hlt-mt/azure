@@ -14,7 +14,7 @@ set -e
 # -----------------------------------
 
 
-destGroup=FBKResourceGroup
+destGroup=ROL-test
 
 # -----------------
 # default variables
