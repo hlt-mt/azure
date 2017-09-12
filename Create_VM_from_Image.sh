@@ -2,19 +2,21 @@
 
 set -e
 
-# -----------------------------------
-# This script creates a new resource group containing a new VM 
-#    and all the resources it needs.
+# ---------------------------------------------------
+# This script creates a new VM starting from an image
 #
 # Please update variables
-#   imgId
+#   imgName
 #   destGroup
 #   destSize
+#   destVmName
 # to meet your requirements
 # -----------------------------------
 
+imgName=ROL-image-a
 destGroup=ROL-test
 destSize=Standard_NC6
+destVmName=ROL-test-from-image-a
 
 # -----------------
 # default variables
@@ -22,13 +24,8 @@ destSize=Standard_NC6
 user=hlt_admin
 passwd=HltMtUser2017
 
-# -----------------
-# derived variables
-#
-destVmName=ROL-test-from-image-a
-imgName=ROL-image-a
 
-# 0) create the actual VM with all the above pars
+# create the actual VM with all the above pars
 #
 args="--resource-group $destGroup --name $destVmName"
 args="$args --image $imgName"
@@ -39,4 +36,3 @@ args="$args --no-wait"
 az vm create $args
 
 echo exit code $?
-
