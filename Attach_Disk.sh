@@ -28,7 +28,7 @@ destDiskName="$destVmName-DataDisk"
 destDiskSize="512"
 destDiskType="Standard_LRS"
 
-# 0) attache a new disk to the specified VM
+# 0) attach a new disk to the specified VM
 args="--resource-group $destGroup --vm-name $destVmName"
 args="$args --disk $destDiskName"
 args="$args --size-gb $destDiskSize"
