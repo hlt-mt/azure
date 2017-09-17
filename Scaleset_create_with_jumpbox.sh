@@ -1,6 +1,7 @@
 #! /bin/bash
 
 set -e
+set -x
 
 # ------------------
 # variables to update
@@ -9,11 +10,12 @@ set -e
 location=southcentralus ; # location=westeurope
 destGroup=ss-test2
 instanceImage="Canonical:UbuntuServer:14.04.4-LTS:latest"
-instanceSize=Standard_NC6
+instanceSize=Standard_A2
 instanceNum=4
+instanceDataDiskSize=512
 user=hlt_admin
 passwd=HltMtUser2017
-namePrefix=JB-test
+namePrefix=JB
 #
 #
 # -------------------------------
@@ -26,7 +28,7 @@ destIp=${namePrefix}-ip
 destNsg=${namePrefix}-nsg
 destNic=${namePrefix}-nic
 destVmName=${namePrefix}-jumpbox
-destVmSize=Basic_A1
+destVmSize=Standard_A1
 destVmImage="Canonical:UbuntuServer:14.04.4-LTS:latest"
 destSs=${namePrefix}-ss
 
@@ -78,6 +80,7 @@ args="$args --instance-count $instanceNum"
 args="$args --authentication-type password"
 args="$args --admin-username $user --admin-password $passwd"
 args="$args --storage-sku Standard_LRS"
+args="$args --data-disk-sizes-gb $instanceDataDiskSize"
 args="$args --vnet-name $destVnet --subnet $destSubnet"
 
 az vmss create $args --public-ip-address ""
