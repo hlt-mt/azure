@@ -80,7 +80,11 @@ args="$args --instance-count $instanceNum"
 args="$args --authentication-type password"
 args="$args --admin-username $user --admin-password $passwd"
 args="$args --storage-sku Standard_LRS"
-args="$args --data-disk-sizes-gb $instanceDataDiskSize"
+if test $instanceDataDiskSize -gt 0
+then
+  # add data disk if needed
+  args="$args --data-disk-sizes-gb $instanceDataDiskSize"
+fi
 args="$args --vnet-name $destVnet --subnet $destSubnet"
 
 az vmss create $args --public-ip-address ""
